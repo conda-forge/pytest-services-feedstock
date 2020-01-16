@@ -14,7 +14,6 @@ source:
     sha256: 5c33dcdeba0294bb209f299d58390f5c0697ada12d253fdc376aa437ce290edb
 
 build:
-  noarch: python
   number: 0
   script: "cd dist && {{ PYTHON }} -m pip install . -vv"
 
@@ -27,6 +26,7 @@ requirements:
     - pytest
     - requests
     - setuptools
+    - subprocess32  # [py<3]
     - zc.lockfile >=2.0
 
 test:
