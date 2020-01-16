@@ -24,6 +24,7 @@ requirements:
   run:
     - psutil
     - pytest
+    - python
     - requests
     - setuptools
     - subprocess32  # [py<3]
