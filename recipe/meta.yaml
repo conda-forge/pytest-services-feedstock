@@ -27,7 +27,7 @@ requirements:
     - python
     - requests
     - setuptools
-    - subprocess32  # [py<3]
+    - subprocess32  # [py2k]
     - zc.lockfile >=2.0
 
 test:
