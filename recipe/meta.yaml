@@ -37,11 +37,13 @@ test:
     - coverage
     - mock
     - mysqlclient
+    - pip
     - pylibmc  # [unix]
     - pytest-pep8
   imports:
     - pytest_services
   commands:
+    - python -m pip check
     - cd src && pytest -vv -k "not xvfb and not mysql and not memcached"  # [unix]
 
 about:
