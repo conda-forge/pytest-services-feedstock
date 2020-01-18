@@ -14,8 +14,7 @@ source:
     sha256: 5c33dcdeba0294bb209f299d58390f5c0697ada12d253fdc376aa437ce290edb
 
 build:
-  noarch: python
-  number: 0
+  number: 1
   script: "cd dist && {{ PYTHON }} -m pip install . -vv"
 
 requirements:
@@ -25,8 +24,10 @@ requirements:
   run:
     - psutil
     - pytest
+    - python
     - requests
     - setuptools
+    - subprocess32  # [py2k]
     - zc.lockfile >=2.0
 
 test:
@@ -37,11 +38,13 @@ test:
     - coverage
     - mock
     - mysqlclient
+    - pip
     - pylibmc  # [unix]
     - pytest-pep8
   imports:
     - pytest_services
   commands:
+    - python -m pip check
     - cd src && pytest -vv -k "not xvfb and not mysql and not memcached"  # [unix]
 
 about:
