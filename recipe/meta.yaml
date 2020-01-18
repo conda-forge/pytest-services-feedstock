@@ -37,7 +37,7 @@ test:
     - astroid
     - coverage
     - mock
-    - mysqlclient
+    - mysqlclient  # [unix]
     - pip
     - pylibmc  # [unix]
     - pytest-pep8
