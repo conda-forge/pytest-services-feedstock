@@ -1,5 +1,5 @@
 {% set name = "pytest-services" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 0037101eaa17e050542808ecb2e799e9b2b148f1867f62b2296329fdd2034cf5
+    sha256: ecdbee4b0cd7d4e9d84ce43d47e45c07fd5aec84d594c961c8c1c98d04c95349
   - folder: src
     url: https://github.com/pytest-dev/pytest-services/archive/{{ version }}.tar.gz
-    sha256: 11e762a7494c110da7a2fad06f7796e7dd347e64405590a30ecde72cc7cfbb36
+    sha256: e4085311a023d2f3b979ff03d6f744711bdfad93aed5fe1467ff9b18f0a3fa4e
 
 build:
   number: 0
