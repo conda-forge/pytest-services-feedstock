@@ -1,33 +1,32 @@
-{% set name = "pytest-services" %}
 {% set version = "2.2.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: pytest-services
   version: {{ version }}
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    url: https://pypi.io/packages/source/p/pytest-services/pytest-services-{{ version }}.tar.gz
     sha256: 2da740487d08ea63dfdf718f5d4ba11e590c99ddf5481549edebf7a3a42ca536
   - folder: src
     url: https://github.com/pytest-dev/pytest-services/archive/{{ version }}.tar.gz
     sha256: 9f12a244baa5da24a8d40af7c59a02b7e1f63aa9efc4e682efb43d0e291fc4d1
 
 build:
-  number: 2
+  noarch: python
+  number: 3
   script: cd dist && {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
   run:
     - psutil
     - pytest
-    - python
+    - python >=3.7
     - requests
     - setuptools
-    - subprocess32  # [py2k]
     - zc.lockfile >=2.0
 
 test:
