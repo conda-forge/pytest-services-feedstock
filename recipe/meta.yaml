@@ -6,7 +6,7 @@ package:
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/p/pytest-services/pytest-services-{{ version }}.tar.gz
+    url: https://pypi.org/packages/source/p/pytest-services/pytest-services-{{ version }}.tar.gz
     sha256: 2da740487d08ea63dfdf718f5d4ba11e590c99ddf5481549edebf7a3a42ca536
   - folder: src
     url: https://github.com/pytest-dev/pytest-services/archive/{{ version }}.tar.gz
@@ -14,17 +14,20 @@ source:
 
 build:
   noarch: python
-  number: 3
-  script: cd dist && {{ PYTHON }} -m pip install . -vv
+  number: 4
+  script:
+    - cd dist
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
-    - python >=3.7
     - pip
+    - python {{ python_min }}
+    - setuptools
   run:
     - psutil
     - pytest
-    - python >=3.7
+    - python >={{ python_min }}
     - requests
     - setuptools
     - zc.lockfile >=2.0
@@ -40,11 +43,13 @@ test:
     - pip
     - pylibmc  # [unix]
     - pytest-pep8
+    - python {{ python_min }}
   imports:
     - pytest_services
   commands:
-    - python -m pip check
-    - cd src && pytest -vv -k "not xvfb and not mysql and not memcached"  # [unix]
+    - pip check
+    - cd src 
+    - pytest -vv -k "not xvfb and not mysql and not memcached"  # [unix]
 
 about:
   home: https://github.com/pytest-dev/pytest-services
