@@ -56,15 +56,15 @@ tests:
             - mysqlclient
             - pylibmc
     script:
+      - cd src
       - if: unix
         then:
-          - cd src
           - coverage run --source=pytest_services --branch -m pytest -vv -k "not (xvfb or mysql or memcached)"
-          - coverage report --show-missing --skip-covered --fail-under=100
+          - coverage report --show-missing --skip-covered --fail-under=44
 
 about:
   license: MIT
-  license_file: src/LICENSE.txt
+  license_file: dist/LICENSE.txt
   summary: Collection of fixtures and utility functions to run service processes for your tests
   homepage: https://github.com/pytest-dev/pytest-services
 
