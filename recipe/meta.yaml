@@ -1,4 +1,4 @@
-{% set version = "2.2.1" %}
+{% set version = "2.2.2" %}
 
 package:
   name: pytest-services
@@ -6,15 +6,15 @@ package:
 
 source:
   - folder: dist
-    url: https://pypi.org/packages/source/p/pytest-services/pytest-services-{{ version }}.tar.gz
-    sha256: 2da740487d08ea63dfdf718f5d4ba11e590c99ddf5481549edebf7a3a42ca536
+    url: https://pypi.org/packages/source/p/pytest-services/pytest_services-{{ version }}.tar.gz
+    sha256: 3388f45e66bba81cefc060273306d7e1eb0005d9303af993211fa9ae667534fd
   - folder: src
-    url: https://github.com/pytest-dev/pytest-services/archive/{{ version }}.tar.gz
-    sha256: 9f12a244baa5da24a8d40af7c59a02b7e1f63aa9efc4e682efb43d0e291fc4d1
+    url: https://github.com/pytest-dev/pytest-services/archive/v{{ version }}.tar.gz
+    sha256: e40fedb17da3214421f04b6af637e5a968cf3b1c778799e39d2a3fcbd599d29a
 
 build:
   noarch: python
-  number: 4
+  number: 0
   script:
     - cd dist
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
@@ -48,7 +48,7 @@ test:
     - pytest_services
   commands:
     - pip check
-    - cd src 
+    - cd src
     - pytest -vv -k "not xvfb and not mysql and not memcached"  # [unix]
 
 about:
