@@ -23,7 +23,8 @@ requirements:
   host:
     - pip
     - python ${{ python_min }}.*
-    - setuptools
+    - setuptools >=61
+    - setuptools-scm >=6.2
   run:
     - psutil
     - pytest
@@ -35,6 +36,8 @@ requirements:
 tests:
   - package_contents:
       strict: true
+      files:
+        - etc/conda/test-files/pytest-services/**
       site_packages:
         - pytest_services/**
         - pytest_services-${{ version }}.dist-info/**
