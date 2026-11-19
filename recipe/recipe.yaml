@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "2.2.2"
+  version: "2.3.0"
 
 package:
   name: pytest-services
@@ -10,10 +10,10 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/p/pytest-services/pytest_services-${{ version }}.tar.gz
-    sha256: 3388f45e66bba81cefc060273306d7e1eb0005d9303af993211fa9ae667534fd
+    sha256: ee3dd1f71e7a9837b2ad07d919af71d6f642c6b3475ef75fc4c4d80e2e8de20d
     target_directory: dist
   - url: https://github.com/pytest-dev/pytest-services/archive/v${{ version }}.tar.gz
-    sha256: e40fedb17da3214421f04b6af637e5a968cf3b1c778799e39d2a3fcbd599d29a
+    sha256: a3cae3d521f5a500deb8dbcd804c2f6d33dcf529fa90aba99257cd13112714e7
     target_directory: src
 
 build:
