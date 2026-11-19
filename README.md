@@ -3,11 +3,13 @@ About pytest-services-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytest-services-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pytest-dev/pytest-services
+Home: https://pypi.org/project/pytest-services
 
 Package license: MIT
 
 Summary: Collection of fixtures and utility functions to run service processes for your tests
+
+Development: https://github.com/pytest-dev/pytest-services
 
 Current build status
 ====================
